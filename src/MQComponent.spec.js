@@ -12,7 +12,6 @@ import mqDecorate from './MQComponent';
 
 jest.useFakeTimers();
 
-
 const defaultConfig = {
   isMobile: 'screen and (max-width: 767px)',
   isTablet: 'screen and (min-width: 768px) and (max-width: 1023px)',
@@ -56,6 +55,11 @@ TestComponent.defaultProps = { mq: undefined };
 declare var window: ContextType;
 
 matchMediaPolyfill(window);
+
+const initial = {
+  isMobile: '(max-width: 919px)',
+  isDesktop: '(min-width: 920px)',
+};
 
 const cteateMockedComponent = () => {
   const Decorated = mqDecorate(TestComponent);
@@ -112,5 +116,20 @@ describe('mqDecorate()', () => {
     resizeWidth(480);
     expect(component.find(TestComponent).props())
       .toEqual(getResExpection({ isMobile: true }));
+  });
+
+
+  it('Breakpoints can be defined in context', () => {
+    resizeWidth(920);
+
+    const Decorated = cteateMockedComponent();
+    const component = mount(<Decorated />, { context: { mq: initial } });
+
+    expect(component.find(TestComponent).props())
+      .toEqual({ isMobile: false, isDesktop: true, mq: initial });
+
+    resizeWidth(919);
+    expect(component.find(TestComponent).props())
+      .toEqual({ isMobile: true, isDesktop: false, mq: initial });
   });
 });
