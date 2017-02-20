@@ -1,7 +1,7 @@
 {
   "name": "mq-react",
   "version": "0.0.0",
-  "description": "Implements the media queries in your React components",
+  "description": "The media queries in your React components. Flow-compatible",
   "main": "./lib/MQComponent.js",
   "files": [
     "lib",
@@ -59,9 +59,11 @@
   "keywords": [
     "component",
     "CSS",
+    "flow",
     "matchMedia",
     "media queries",
     "mobile",
+    "MQ",
     "react-component",
     "React",
     "responsive",
