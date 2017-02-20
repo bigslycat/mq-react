@@ -1,0 +1,80 @@
+{
+  "name": "mq-react",
+  "version": "0.0.0",
+  "description": "Implements the media queries in your React components",
+  "main": "./lib/MQComponent.js",
+  "files": [
+    "lib",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "types": "flow",
+    "test": "jest",
+    "prebuild": "npm run lint && npm run types && npm run test",
+    "build": "npm run build-unsafe",
+    "prebuild-unsafe": "rimraf lib",
+    "build-unsafe": "webpack",
+    "postbuild": "flow-copy-source -v -i '**/*.spec.js' src lib",
+    "precommit": "npm run prebuild",
+    "preversion": "git checkout master && npm run build",
+    "postversion": "npm publish"
+  },
+  "devDependencies": {
+    "babel-cli": "6.23.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "6.3.2",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "enzyme": "2.7.1",
+    "eslint": "3.16.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.10.0",
+    "flow-bin": "0.39.0",
+    "flow-copy-source": "1.1.0",
+    "husky": "0.13.1",
+    "jest": "18.1.0",
+    "mq-polyfill": "1.1.7",
+    "react": "15.4.2",
+    "react-addons-test-utils": "15.4.2",
+    "react-dom": "15.4.2",
+    "rimraf": "2.6.0",
+    "webpack": "2.2.1"
+  },
+  "peerDependencies": {
+    "react": "15.4.2",
+    "react-dom": "15.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigslycat/mq-react.git"
+  },
+  "keywords": [
+    "component",
+    "CSS",
+    "matchMedia",
+    "media queries",
+    "mobile",
+    "react-component",
+    "React",
+    "responsive",
+    "viewport"
+  ],
+  "author": {
+    "name": "Pavel Tereschenko",
+    "email": "me@pavlik.pro",
+    "url": "https://github.com/bigslycat"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bigslycat/mq-react/issues"
+  },
+  "homepage": "https://github.com/bigslycat/mq-react#readme"
+}

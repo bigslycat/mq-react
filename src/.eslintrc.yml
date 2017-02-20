@@ -1,0 +1,11 @@
+extends: ../.eslintrc.yml
+
+env:
+  node: false
+  browser: true
+
+rules:
+  react/jsx-filename-extension:
+    - error
+    - extensions:
+      - .js
