@@ -132,4 +132,18 @@ describe('mqDecorate()', () => {
     expect(component.find(TestComponent).props())
       .toEqual({ isMobile: true, isDesktop: false, mq: initial });
   });
+
+  it('Breakpoints can be defined in props', () => {
+    resizeWidth(920);
+
+    const Decorated = cteateMockedComponent();
+    const component = mount(<Decorated mq={initial} />);
+
+    expect(component.find(TestComponent).props())
+      .toEqual({ isMobile: false, isDesktop: true, mq: initial });
+
+    resizeWidth(919);
+    expect(component.find(TestComponent).props())
+      .toEqual({ isMobile: true, isDesktop: false, mq: initial });
+  });
 });
