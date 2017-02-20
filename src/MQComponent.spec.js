@@ -146,4 +146,27 @@ describe('mqDecorate()', () => {
     expect(component.find(TestComponent).props())
       .toEqual({ isMobile: true, isDesktop: false, mq: initial });
   });
+
+
+  it('Changes of breakpoints is debounces', () => {
+    resizeWidth(920);
+
+    const Decorated = cteateMockedComponent();
+    const component = mount(<Decorated mq={initial} />);
+
+    const { setState, render } = Decorated.prototype;
+
+    expect(component.find(TestComponent).props())
+      .toEqual({ isMobile: false, isDesktop: true, mq: initial });
+
+    resizeWidth(919, false);
+    resizeWidth(920, false);
+    resizeWidth(919);
+
+    expect(setState).toHaveBeenCalledTimes(1);
+    expect(render).toHaveBeenCalledTimes(2);
+
+    expect(component.find(TestComponent).props())
+      .toEqual({ isMobile: true, isDesktop: false, mq: initial });
+  });
 });
