@@ -1,6 +1,6 @@
 {
   "name": "mq-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The media queries in your React components. Flow-compatible",
   "main": "./lib/MQComponent.js",
   "files": [
