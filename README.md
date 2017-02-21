@@ -1,6 +1,6 @@
 # mq-react
 
-Media queries in your React components. Flow-compatible.
+The media queries for your React components. Flow-compatible.
 
 ## Install
 
