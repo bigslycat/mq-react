@@ -12,7 +12,7 @@ npm install --save mq-react
 
 ### Example code
 
-```jsx
+```javascript
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import mqDecorate from 'mq-react';
