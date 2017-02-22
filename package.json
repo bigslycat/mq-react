@@ -2,7 +2,7 @@
   "name": "mq-react",
   "version": "1.0.2",
   "description": "The media queries for your React components. Flow-compatible",
-  "main": "./lib/MQComponent.js",
+  "main": "lib/MQComponent.js",
   "files": [
     "lib",
     "LICENSE.md",
@@ -15,7 +15,7 @@
     "prebuild": "npm run lint && npm run types && npm run test",
     "build": "npm run build-unsafe",
     "prebuild-unsafe": "rimraf lib",
-    "build-unsafe": "webpack",
+    "build-unsafe": "babel src --out-dir lib --ignore spec.js",
     "postbuild": "flow-copy-source -v -i '**/*.spec.js' src lib",
     "precommit": "npm run prebuild",
     "preversion": "git checkout master && npm run build",
@@ -24,7 +24,6 @@
   "devDependencies": {
     "babel-cli": "6.23.0",
     "babel-eslint": "^7.1.1",
-    "babel-loader": "6.3.2",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-latest": "^6.22.0",
@@ -45,8 +44,7 @@
     "react": "15.4.2",
     "react-addons-test-utils": "15.4.2",
     "react-dom": "15.4.2",
-    "rimraf": "2.6.0",
-    "webpack": "2.2.1"
+    "rimraf": "2.6.0"
   },
   "peerDependencies": {
     "react": "15.4.2",
