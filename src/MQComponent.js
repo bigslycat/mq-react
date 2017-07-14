@@ -1,6 +1,7 @@
 // @flow
 
-import React, { Component, PropTypes, Element } from 'react';
+import React, { Component, Element } from 'react';
+import PropTypes from 'prop-types';
 
 declare class MediaQueryList {
   addListener(listener: MQListenerType): void,
