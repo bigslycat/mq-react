@@ -51,6 +51,7 @@ const decorate = (ChildrenComponent: ChildrenType) =>
   class MQComponent extends Component<PropsType, PropsType, StateType> {
     state: StateType;
     context: PropsType;
+    props: PropsType;
 
     static contextTypes = {
       mq: PropTypes.objectOf(PropTypes.string),
