@@ -1,4 +1,7 @@
 [ignore]
+<PROJECT_ROOT>/node_modules/kefir/dist/kefir.js.flow
+<PROJECT_ROOT>/node_modules/kefir/kefir.js.flow
+<PROJECT_ROOT>/node_modules/mq-polyfill/lib/evalQuery/evalQuery.js.flow
 <PROJECT_ROOT>/lib/.*
 
 [include]
