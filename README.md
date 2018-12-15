@@ -1,5 +1,7 @@
 # mq-react
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bigslycat/mq-react.svg)](https://greenkeeper.io/)
+
 The media queries for your React components. Flow-compatible.
 
 ## Install
